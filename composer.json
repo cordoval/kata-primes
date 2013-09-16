@@ -1,0 +1,19 @@
+{
+    "name": "cordoval/kata-primes",
+    "license": "MIT",
+    "type": "project",
+    "description": "Kata DDD primes",
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "phpspec/phpspec": "2.0.*@dev"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "dev"
+}
