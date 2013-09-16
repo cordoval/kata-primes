@@ -42,5 +42,20 @@ class ExtractorSpec extends ObjectBehavior
         $this->divisibleBy(9, 2)->shouldBe(false);
     }
 
-    
+    function it_divides_number_when_is_divisible()
+    {
+        $this->extractGivenFactor(12, 3)->shouldBe(['factor' => 3, 'dividend' => 4]);
+    }
+
+    function it_does_not_divide_number_when_it_is_not_divisible()
+    {
+        $this->extractGivenFactor(11, 3)->shouldBe(['factor' => 3, 'dividend' => 11]);
+    }
+
+    function it_extracts_factor_multiple_times_if_needed_when_present()
+    {
+        $this->extract(12, 7)->shouldBe(['factor' => 7, 'times' => 0, 'dividend' => 12]);
+        $this->extract(12, 3)->shouldBe(['factor' => 3, 'times' => 1, 'dividend' => 4]);
+        $this->extract(18, 3)->shouldBe(['factor' => 3, 'times' => 2, 'dividend' => 2]);
+    }
 }
