@@ -56,6 +56,7 @@ class ExtractorSpec extends ObjectBehavior
     {
         $this->extract(12, 7)->shouldBe(['factor' => 7, 'times' => 0, 'dividend' => 12]);
         $this->extract(12, 3)->shouldBe(['factor' => 3, 'times' => 1, 'dividend' => 4]);
+        $this->extract(12, 3)->shouldBe(['factor' => 2, 'times' => 2, 'dividend' => 3]);
         $this->extract(18, 3)->shouldBe(['factor' => 3, 'times' => 2, 'dividend' => 2]);
     }
 }
