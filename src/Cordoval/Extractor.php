@@ -34,13 +34,15 @@ class Extractor
 
     public function extract($number, $factor)
     {
-        $times = 0;
-
-        do {
-            $r = $this->extractGivenFactor($number, $factor);
-            $factor = $r['factor'];
+        $times = -1;
+        $dividendPrev = 0;
+        $dividend = $number;
+        while ($dividendPrev != $dividend) {
+            $dividendPrev = $dividend;
+            $times++;
+            $r = $this->extractGivenFactor($dividend, $factor);
             $dividend = $r['dividend'];
-        } while($dividend !== $number);
+        }
 
         return [
             'factor' => $factor,

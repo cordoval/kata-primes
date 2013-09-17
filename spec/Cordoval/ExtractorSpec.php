@@ -52,11 +52,23 @@ class ExtractorSpec extends ObjectBehavior
         $this->extractGivenFactor(11, 3)->shouldBe(['factor' => 3, 'dividend' => 11]);
     }
 
-    function it_extracts_factor_multiple_times_if_needed_when_present()
+    function it_extracts_factor_multiple_times_if_needed_when_present_12_7()
     {
         $this->extract(12, 7)->shouldBe(['factor' => 7, 'times' => 0, 'dividend' => 12]);
+    }
+
+    function it_extracts_factor_multiple_times_if_needed_when_present_12_3()
+    {
         $this->extract(12, 3)->shouldBe(['factor' => 3, 'times' => 1, 'dividend' => 4]);
-        $this->extract(12, 3)->shouldBe(['factor' => 2, 'times' => 2, 'dividend' => 3]);
+    }
+
+    function it_extracts_factor_multiple_times_if_needed_when_present_12_2()
+    {
+        $this->extract(12, 2)->shouldBe(['factor' => 2, 'times' => 2, 'dividend' => 3]);
+    }
+
+    function it_extracts_factor_multiple_times_if_needed_when_present_18_3()
+    {
         $this->extract(18, 3)->shouldBe(['factor' => 3, 'times' => 2, 'dividend' => 2]);
     }
 }
