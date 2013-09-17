@@ -71,4 +71,9 @@ class ExtractorSpec extends ObjectBehavior
     {
         $this->extract(18, 3)->shouldBe(['factor' => 3, 'times' => 2, 'dividend' => 2]);
     }
+
+    function it_harvest_all_factors_that_are_less_than_the_number_18_3()
+    {
+        $this->harvest(18)->shouldBe([['factor' => 2, 'times' => 1], ['factor' => 3, 'times' => 2]]);
+    }
 }

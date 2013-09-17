@@ -50,4 +50,23 @@ class Extractor
             'dividend' => $dividend
         ];
     }
+
+    public function harvest($number)
+    {
+        $factor = 2;
+        $results = [];
+        $originalNumber = $number;
+        while ($factor < $originalNumber) {
+            $extraction = $this->extract($number, $factor);
+
+            $number = $extraction['dividend'];
+            $times = $extraction['times'];
+            if ($times != 0) {
+                $results[] = ['factor' => $factor, 'times' => $times];
+            }
+            $factor++;
+        }
+
+        return $results;
+    }
 }
